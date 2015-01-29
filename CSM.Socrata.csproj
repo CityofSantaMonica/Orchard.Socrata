@@ -48,6 +48,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\packages\Newtonsoft.Json.6.0.7\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SODA">
+      <HintPath>..\..\..\packages\CSM.SodaDotNet.0.3.0\lib\net45\SODA.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.ComponentModel.DataAnnotations">
@@ -87,8 +93,12 @@
     <Compile Include="Drivers\SocrataSettingsPartDriver.cs" />
     <Compile Include="Handlers\SocrataSettingsPartHandler.cs" />
     <Compile Include="Models\SocrataSettingsPart.cs" />
+    <Compile Include="Services\ISocrataConnectionService.cs" />
+    <Compile Include="Services\SocrataConnectionService.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Views\EditorTemplates\Parts\Socrata.Settings.cshtml" />
   </ItemGroup>
