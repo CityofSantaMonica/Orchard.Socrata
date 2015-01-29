@@ -11,6 +11,26 @@ namespace CSM.Socrata.Models
     {
         private readonly ComputedField<string> _password = new ComputedField<string>();
 
+        [Required]
+        public string Host
+        {
+            get { return Retrieve<string>("Host"); }
+            set { Store<string>("Host", value); }
+        }
+
+        [Required]
+        public string AppToken
+        {
+            get { return Retrieve<string>("AppToken"); }
+            set { Store<string>("AppToken", value); }
+        }
+
+        public string Username
+        {
+            get { return Retrieve<string>("Username"); }
+            set { Store<string>("Username", value); }
+        }
+
         public ComputedField<string> PasswordField
         {
             get { return _password; }
@@ -20,18 +40,6 @@ namespace CSM.Socrata.Models
         {
             get { return PasswordField.Value; }
             set { PasswordField.Value = value; }
-        }
-
-        public string Host
-        {
-            get { return Retrieve<string>("Host"); }
-            set { Store<string>("Host", value); }
-        }
-
-        public string Username
-        {
-            get { return Retrieve<string>("Username"); }
-            set { Store<string>("Username", value); }
         }
     }
 }
