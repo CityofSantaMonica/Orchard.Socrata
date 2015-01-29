@@ -1,0 +1,17 @@
+﻿@model CSM.Socrata.Models.SocrataSettingsPart
+
+<fieldset>
+    <legend>Socrata Connection Settings</legend>
+    <div>
+        @Html.LabelFor(m => m.Host, T("Socrata host"))
+        <strong>https://</strong>@Html.TextBoxFor(m => m.Host)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Username, T("Socrata user account"))
+        @Html.TextBoxFor(m => m.Username)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Password, T("Socrata account password"))
+        @Html.PasswordFor(m => m.Password)
+    </div>
+</fieldset>
