@@ -3,14 +3,15 @@ using CSM.Socrata.Models;
 using Orchard;
 using Orchard.ContentManagement;
 using SODA;
+using SODA.Utilities;
 
 namespace CSM.Socrata.Services
 {
-    public class SocrataConnectionService : ISocrataConnectionService
+    public class SocrataService : ISocrataService
     {
         private readonly IOrchardServices _orchardServices;
 
-        public SocrataConnectionService(IOrchardServices orchardServices)
+        public SocrataService(IOrchardServices orchardServices)
         {
             _orchardServices = orchardServices;
         }
@@ -41,6 +42,11 @@ namespace CSM.Socrata.Services
                 throw new InvalidOperationException("No Socrata user credentials have been defined.");
 
             return new SodaClient(settings.Host, settings.AppToken, settings.Username, settings.Password);
+        }
+
+        public bool IsValidResourceIdentifier(string identifier)
+        {
+            return FourByFour.IsValid(identifier);
         }
     }
 }

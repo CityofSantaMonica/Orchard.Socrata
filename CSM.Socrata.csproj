@@ -93,8 +93,8 @@
     <Compile Include="Drivers\SocrataSettingsPartDriver.cs" />
     <Compile Include="Handlers\SocrataSettingsPartHandler.cs" />
     <Compile Include="Models\SocrataSettingsPart.cs" />
-    <Compile Include="Services\ISocrataConnectionService.cs" />
-    <Compile Include="Services\SocrataConnectionService.cs" />
+    <Compile Include="Services\ISocrataService.cs" />
+    <Compile Include="Services\SocrataService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
