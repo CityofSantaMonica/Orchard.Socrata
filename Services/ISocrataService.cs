@@ -15,14 +15,9 @@ namespace CSM.Socrata.Services
         SocrataSettingsPart GetSettings();
 
         /// <summary>
-        /// Create a new <see cref="SODA.SodaClient"/> for read-access using the defined site settings.
+        /// Create a new <see cref="SODA.SodaClient"/> using the specified settings.
         /// </summary>
-        SodaClient GetAnonymousClient();
-
-        /// <summary>
-        /// Create a new <see cref="SODA.SodaClient"/> for read/write-access using the defined site settings.
-        /// </summary>
-        SodaClient GetAuthenticatedClient();
+        SodaClient GetClient(SocrataSettingsPart settings);
 
         /// <summary>
         /// Determine if the specificed identifier is a valid Socrata (4x4) resource identifier

@@ -21,27 +21,12 @@ namespace CSM.Socrata.Services
             return _orchardServices.WorkContext.CurrentSite.As<SocrataSettingsPart>();
         }
 
-        public SodaClient GetAnonymousClient()
+        public SodaClient GetClient(SocrataSettingsPart settings)
         {
-            var settings = GetSettings();
-
             if (settings == null)
                 throw new InvalidOperationException("No Socrata settings have been defined.");
 
             return new SodaClient(settings.Host, settings.AppToken);
-        }
-
-        public SodaClient GetAuthenticatedClient()
-        {
-            var settings = GetSettings();
-
-            if (settings == null)
-                throw new InvalidOperationException("No Socrata settings have been defined.");
-
-            if (String.IsNullOrEmpty(settings.Username) || String.IsNullOrEmpty(settings.Password))
-                throw new InvalidOperationException("No Socrata user credentials have been defined.");
-
-            return new SodaClient(settings.Host, settings.AppToken, settings.Username, settings.Password);
         }
 
         public bool IsValidResourceIdentifier(string identifier)
