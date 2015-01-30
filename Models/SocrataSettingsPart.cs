@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Utilities;
 
@@ -10,30 +11,30 @@ namespace CSM.Socrata.Models
     public class SocrataSettingsPart : ContentPart
     {
         private readonly ComputedField<string> _password = new ComputedField<string>();
+        
+        internal ComputedField<string> PasswordField
+        {
+            get { return _password; }
+        }
 
         [Required]
         public string Host
         {
-            get { return Retrieve<string>("Host"); }
-            set { Store<string>("Host", value); }
+            get { return this.Retrieve(x => x.Host); }
+            set { this.Store(x => x.Host, value); }
         }
 
         [Required]
         public string AppToken
         {
-            get { return Retrieve<string>("AppToken"); }
-            set { Store<string>("AppToken", value); }
+            get { return this.Retrieve(x => x.AppToken); }
+            set { this.Store(x => x.AppToken, value); }
         }
 
         public string Username
         {
-            get { return Retrieve<string>("Username"); }
-            set { Store<string>("Username", value); }
-        }
-
-        public ComputedField<string> PasswordField
-        {
-            get { return _password; }
+            get { return this.Retrieve(x => x.Username); }
+            set { this.Store(x => x.Username, value); }
         }
 
         public string Password
