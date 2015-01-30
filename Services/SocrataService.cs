@@ -23,9 +23,6 @@ namespace CSM.Socrata.Services
 
         public SodaClient GetClient(SocrataSettingsPart settings)
         {
-            if (settings == null)
-                throw new InvalidOperationException("No Socrata settings have been defined.");
-
             return new SodaClient(settings.Host, settings.AppToken);
         }
 
