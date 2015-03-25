@@ -1,0 +1,23 @@
+﻿@model CSM.Socrata.Models.SocrataSettingsPart
+
+<fieldset>
+    <legend>Socrata Connection Settings</legend>
+    <div>
+        @Html.LabelFor(m => m.Host, T("Socrata host"))
+        <strong>https://</strong>@Html.TextBoxFor(m => m.Host, new { @class = "text medium" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.AppToken, T("SODA App Token"))
+        @Html.TextBoxFor(m => m.AppToken, new { @class = "text medium" })
+        <span class="hint">See the <a href="http://dev.socrata.com/docs/app-tokens.html" target="_blank">SODA App Token documentation</a> for more info.</span>
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Username, T("Socrata user account"))
+        @Html.TextBoxFor(m => m.Username, new { @class = "text medium" })
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Password, T("Socrata user account password"))
+        @Html.PasswordFor(m => m.Password, new { @class = "text medium" })
+    </div>
+    <p class="hint">Account credentials are required for performing write operations on Socrata datasets and for reading private resources.</p>
+</fieldset>

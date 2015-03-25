@@ -15,15 +15,15 @@ namespace CSM.Socrata.Drivers
 
         protected override string Prefix
         {
-            get { return "SocrataSettingsPart"; }
+            get { return "SocrataSettings"; }
         }
 
         protected override DriverResult Editor(SocrataSettingsPart part, dynamic shapeHelper)
         {
             return ContentShape(
-                "Parts_Socrata_Settings",
+                "Parts_Socrata_Settings_Edit",
                 () => shapeHelper.EditorTemplate(
-                    TemplateName: "Parts/Socrata.Settings",
+                    TemplateName: "Parts.Socrata.Settings",
                     Model: part,
                     Prefix: Prefix
                 )
