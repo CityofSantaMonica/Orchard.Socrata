@@ -72,9 +72,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Lib\SODA\LICENSE.txt" />
-    <Content Include="Lib\SODA\SODA.dll" />
-    <Content Include="Lib\SODA\SODA.xml" />
     <Content Include="Web.config" />
     <Content Include="Properties\AssemblyInfo.cs" />
     <Content Include="Module.txt" />
