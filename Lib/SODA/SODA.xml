@@ -217,7 +217,7 @@
             Implementation detail representing a request/response to/from a SODA endpoint.
             </summary>
         </member>
-        <member name="M:SODA.SodaRequest.#ctor(System.Uri,System.String,System.String,System.String,System.String,SODA.SodaDataFormat,System.String)">
+        <member name="M:SODA.SodaRequest.#ctor(System.Uri,System.String,System.String,System.String,System.String,SODA.SodaDataFormat,System.String,System.Nullable{System.Int32})">
             <summary>
             Initialize a new SodaRequest.
             </summary>
@@ -228,6 +228,7 @@
             <param name="password">The password for the specified Socrata <paramref name="username"/>.</param>
             <param name="dataFormat">One of the data-interchange formats that Socrata supports. The default is JSON.</param>
             <param name="payload">The body of the request.</param>
+            <param name="timeout">The number of milliseconds to wait for a response before throwing a Timeout WebException.</param>
         </member>
         <member name="M:SODA.SodaRequest.ParseResponse``1">
             <summary>
@@ -1130,6 +1131,12 @@
             <exception cref="T:System.ArgumentException">Thrown if the specified <paramref name="rowId"/> is null or empty.</exception>
             <exception cref="T:System.ArgumentOutOfRangeException">Thrown if the specified <paramref name="resourceId"/> does not match the Socrata 4x4 pattern.</exception>
             <exception cref="T:System.InvalidOperationException">Thrown if this SodaClient was initialized without authentication credentials.</exception>
+        </member>
+        <member name="P:SODA.SodaClient.RequestTimeout">
+            <summary>
+            If set, the number of milliseconds to wait before requests to the <see cref="F:SODA.SodaClient.Host"/> timeout and throw a <see cref="T:System.Net.WebException"/>.
+            If unset, the default value is that of <see cref="P:System.Net.HttpWebRequest.Timeout"/>.
+            </summary>
         </member>
         <member name="T:SODA.Utilities.JsonSerializationExtensions">
             <summary>
