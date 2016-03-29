@@ -1,8 +1,8 @@
 ﻿Name: CSM.Socrata
 AntiForgery: enabled
 Author: City of Santa Monica
-Website: https://github.com/CityofSantaMonica/OrchardSocrata
-Version: 1.x
-OrchardVersion: 1.x
+Website: https://github.com/CityofSantaMonica/Orchard.Socrata
+Version: 1.1.0
+OrchardVersion: 1.10
 Description: Supports connections to Socrata Open Data hosts
 Category: Open Data
