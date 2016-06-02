@@ -23,7 +23,10 @@ namespace CSM.Socrata.Services
 
         public SodaClient GetClient(SocrataSettingsPart settings)
         {
-            return new SodaClient(settings.Host, settings.AppToken);
+            if (String.IsNullOrEmpty(settings.Username) || String.IsNullOrEmpty(settings.Password))
+                return new SodaClient(settings.Host, settings.AppToken);
+            else
+                return new SodaClient(settings.Host, settings.AppToken, settings.Username, settings.Password);
         }
 
         public bool IsValidResourceIdentifier(string identifier)
