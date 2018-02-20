@@ -17,7 +17,7 @@
     </div>
     <div>
         @Html.LabelFor(m => m.Password, T("Socrata user account password"))
-        @Html.PasswordFor(m => m.Password, new { @class = "text medium" })
+        @Html.TextBoxFor(m => m.Password, new { @class = "text medium", type = "password" })
     </div>
     <p class="hint">Account credentials are required for performing write operations on Socrata datasets and for reading private resources.</p>
 </fieldset>
