@@ -24,7 +24,6 @@ namespace CSM.Socrata.Models
             set { this.Store(x => x.Host, value); }
         }
 
-        [Required]
         public string AppToken
         {
             get { return this.Retrieve(x => x.AppToken); }
