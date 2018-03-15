@@ -1,6 +1,7 @@
 ﻿using CSM.Socrata.Models;
 using Orchard.ContentManagement.Drivers;
 using Orchard.Localization;
+using System;
 
 namespace CSM.Socrata.Drivers
 {
@@ -20,16 +21,18 @@ namespace CSM.Socrata.Drivers
 
         protected override DriverResult Editor(SocrataSettingsPart part, dynamic shapeHelper)
         {
-            return ContentShape(
-                "Parts_Socrata_Settings_Edit",
-                () => shapeHelper.EditorTemplate(
+            var shapeName = "Parts_Socrata_Settings_Edit";
+
+            Func<dynamic> factory = () => shapeHelper.EditorTemplate(
                     TemplateName: "Parts.Socrata.Settings",
                     Model: part,
                     Prefix: Prefix
-                )
-            )
-            //important to render the shape in the "Socrata" section of Settings menu
-            .OnGroup("Socrata");
+            );
+
+            var forContent = ContentShape(shapeName, factory);
+            var forSiteSettings = ContentShape(shapeName, factory).OnGroup("Socrata");
+
+            return Combined(forContent, forSiteSettings);
         }
 
         protected override DriverResult Editor(SocrataSettingsPart part, Orchard.ContentManagement.IUpdateModel updater, dynamic shapeHelper)

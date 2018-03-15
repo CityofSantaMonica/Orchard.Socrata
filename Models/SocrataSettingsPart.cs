@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using Orchard.ContentManagement;
+﻿using Orchard.ContentManagement;
 using Orchard.ContentManagement.Utilities;
 
 namespace CSM.Socrata.Models
 {
     /// <summary>
-    /// Defines a global site-settings part for Socrata connection information.
+    /// Defines a part for basic Socrata connection information.
     /// </summary>
     public class SocrataSettingsPart : ContentPart
     {
@@ -17,7 +15,6 @@ namespace CSM.Socrata.Models
             get { return _password; }
         }
 
-        [Required]
         public string Host
         {
             get { return this.Retrieve(x => x.Host); }
