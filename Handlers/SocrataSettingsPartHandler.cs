@@ -26,10 +26,12 @@ namespace CSM.Socrata.Handlers
             //attach the part when the Site is activated
             Filters.Add(new ActivatingFilter<SocrataSettingsPart>("Site"));
 
-            OnLoaded<SocrataSettingsPart>(lazyLoadHandlers);
+            OnActivated<SocrataSettingsPart>((_, part) => lazyLoadHandlers(part));
+            OnCreating<SocrataSettingsPart>((_, part) => lazyLoadHandlers(part));
+            OnLoaded<SocrataSettingsPart>((_, part) => lazyLoadHandlers(part));
         }
 
-        private void lazyLoadHandlers(LoadContentContext context, SocrataSettingsPart part)
+        private void lazyLoadHandlers(SocrataSettingsPart part)
         {
             //decrypt stored password on read
             part.PasswordField.Getter(() => {
