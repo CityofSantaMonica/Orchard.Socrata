@@ -38,5 +38,11 @@ namespace CSM.Socrata.Models
             get { return PasswordField.Value; }
             set { PasswordField.Value = value; }
         }
+
+        public int? Timeout
+        {
+            get { return this.Retrieve(x => x.Timeout); }
+            set { this.Store(x => x.Timeout, value); }
+        }
     }
 }

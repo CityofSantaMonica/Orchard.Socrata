@@ -12,6 +12,11 @@
         <span class="hint">See the <a href="http://dev.socrata.com/docs/app-tokens.html" target="_blank">SODA App Token documentation</a> for more info.</span>
     </div>
     <div>
+        @Html.LabelFor(m => m.Timeout, T("Connection Timeout (ms)"))
+        @Html.TextBoxFor(m => m.Timeout, new { @class = "text medium" })
+        <span class="hint">(Optional) Enter the number of milliseconds to wait for a connection timeout.</span>
+    </div>
+    <div>
         @Html.LabelFor(m => m.Username, T("Socrata user account"))
         @Html.TextBoxFor(m => m.Username, new { @class = "text medium" })
     </div>
